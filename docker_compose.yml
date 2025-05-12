@@ -1,6 +1,6 @@
 services:
-    web:
-        build: .
+    ussd_callback:
+        build: ./ussd_callback
         volumes:
           - ./logs:/app/logs
           - sqlite_data:/app/data
