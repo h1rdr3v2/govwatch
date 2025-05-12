@@ -29,4 +29,4 @@ def ussd_callback():
     elif text == '2':
         response = "END This is your phone number " + phone_number
 
-return response
+    return response
