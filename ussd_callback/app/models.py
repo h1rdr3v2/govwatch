@@ -12,7 +12,7 @@ class Report(db.Model):
     tracking_id = db.Column(db.String(20), unique=True, nullable=False, index=True)
     phone_number = db.Column(db.String(20), nullable=False)
     issue_type = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.String(500), nullable=False)
+    description = db.Column(db.Text, nullable=False)  # Changed to Text for MySQL
     location = db.Column(db.String(200), nullable=False)
     status = db.Column(db.String(50), default='Received')
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -44,7 +44,7 @@ class Session(db.Model):
     phone_number = db.Column(db.String(20), nullable=False)
     step = db.Column(db.Integer, default=0)
     issue_type = db.Column(db.String(100), nullable=True)
-    description = db.Column(db.String(500), nullable=True)
+    description = db.Column(db.Text, nullable=True)  # Changed to Text for MySQL
     location = db.Column(db.String(200), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

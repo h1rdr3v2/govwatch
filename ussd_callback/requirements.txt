@@ -1,3 +1,5 @@
 flask
 gunicorn
 Flask-SQLAlchemy==3.0.5
+pymysql==1.1.0
+cryptography==41.0.3

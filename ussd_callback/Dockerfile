@@ -2,15 +2,19 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Install dependencies
+# Install dependencies including MySQL client
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && \
+    apt-get install -y default-libmysqlclient-dev build-essential && \
+    pip install --no-cache-dir -r requirements.txt && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy application code
 COPY . .
 
-# Create necessary directories
-RUN mkdir -p /app/data /app/logs
+# Create logs directory
+RUN mkdir -p /app/logs
 
 # Set environment variables
 ENV FLASK_APP=run.py
