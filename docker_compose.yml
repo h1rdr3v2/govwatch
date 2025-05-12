@@ -1,0 +1,6 @@
+services:
+  ussd_callback:
+    build: ./ussd_callback
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
