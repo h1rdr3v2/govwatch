@@ -5,7 +5,7 @@ WORKDIR /app
 # Install dependencies including MySQL client
 COPY requirements.txt .
 RUN apt-get update && \
-    apt-get install -y default-libmysqlclient-dev build-essential && \
+    apt-get install -y default-libmysqlclient-dev build-essential pkg-config && \
     pip install --no-cache-dir -r requirements.txt && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

@@ -4,6 +4,8 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask
 from app.config import config
 from app.models import db
+import pymysql
+pymysql.install_as_MySQLdb()
 
 def create_app(config_name=None):
     """Create Flask application."""
