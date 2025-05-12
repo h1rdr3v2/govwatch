@@ -1,5 +1,30 @@
 services:
-  ussd_callback:
-    build: ./ussd_callback
-    environment:
-      - FLASK_ENV=production
+    web:
+        build: .
+        volumes:
+          - ./logs:/app/logs
+          - sqlite_data:/app/data
+        environment:
+          - FLASK_ENV=production
+          - SECRET_KEY=your_secure_secret_key_here
+          - DATABASE_URL=sqlite:///data/govwatch.db
+          - LOG_LEVEL=INFO
+        depends_on:
+          - sqlite-web
+        restart: always
+    sqlite-web:
+        image: lscr.io/linuxserver/sqlite-web:latest
+        ports:
+          - "8080:8080"
+        volumes:
+          - sqlite_data:/data
+        environment:
+          - PUID=1000
+          - PGID=1000
+          - TZ=Etc/UTC
+          - SQLITE_DATABASE=govwatch.db
+        restart: always
+
+volumes:
+    sqlite_data:
+      name: govwatch-sqlite-data

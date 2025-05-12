@@ -1,22 +1,23 @@
-# Use official Python image
-FROM python:3.11-slim
+FROM python:3.9-slim
 
-# Environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
-# Set work directory
 WORKDIR /app
 
 # Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy app files
+# Copy application code
 COPY . .
 
-# Expose the port Gunicorn will bind to
+# Create necessary directories
+RUN mkdir -p /app/data /app/logs
+
+# Set environment variables
+ENV FLASK_APP=run.py
+ENV PYTHONUNBUFFERED=1
+
+# Expose port
 EXPOSE 5000
 
-# Run the app using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+# Run the application with gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "run:app"]
