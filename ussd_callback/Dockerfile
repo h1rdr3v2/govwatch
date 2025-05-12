@@ -1,22 +1,22 @@
 # Use official Python image
 FROM python:3.11-slim
 
-# Set environment variables
+# Environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Set working directory
+# Set work directory
 WORKDIR /app
 
 # Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# Copy app files
 COPY . .
 
-# Expose the port Flask will run on
+# Expose the port Gunicorn will bind to
 EXPOSE 5000
 
-# Run the Flask app
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Run the app using Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
