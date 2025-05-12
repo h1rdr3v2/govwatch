@@ -3,15 +3,10 @@ services:
         build: ./ussd_callback
         volumes:
           - ./logs:/app/logs
-          - sqlite_data:/app/data
         environment:
           - FLASK_ENV=production
           - SECRET_KEY=your_secure_secret_key_here
 #          - DATABASE_URL=sqlite:///data/govwatch.db
-          - DATABASE_URL=mysql+pymysql://govwatch:password@mysql:3306/govwatch
+          - DATABASE_URL=${DB_URI}
           - LOG_LEVEL=INFO
         restart: always
-
-volumes:
-    sqlite_data:
-      name: govwatch-sqlite-data
