@@ -24,7 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
+    <head>
+        <script src="https://kit.fontawesome.com/14b586d50a.js" crossOrigin="anonymous"></script>
+    </head>
+    <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
