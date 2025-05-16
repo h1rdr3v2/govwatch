@@ -1,4 +1,6 @@
 services:
+    app_service:
+      build: app-service
     ussd_callback:
         build: ./ussd_callback
         volumes:
