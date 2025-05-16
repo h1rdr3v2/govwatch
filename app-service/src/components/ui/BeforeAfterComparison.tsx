@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from "next/image";
 
 interface BeforeAfterComparisonProps {
 	beforeImage: string;
@@ -21,9 +22,11 @@ const BeforeAfterComparison: React.FC<BeforeAfterComparisonProps> = ({
 		<div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 			<div className="bg-white rounded-xl shadow-md overflow-hidden">
 				<div className="h-64 relative overflow-hidden">
-					<img
+					<Image
 						src={beforeImage}
 						alt="Before repair"
+						height={256}
+						width={200}
 						className="w-full h-full object-cover object-top"
 					/>
 					<div className="absolute top-0 left-0 bg-red-500 text-white px-4 py-1 font-medium">
@@ -37,9 +40,11 @@ const BeforeAfterComparison: React.FC<BeforeAfterComparisonProps> = ({
 			</div>
 			<div className="bg-white rounded-xl shadow-md overflow-hidden">
 				<div className="h-64 relative overflow-hidden">
-					<img
+					<Image
 						src={afterImage}
 						alt="After repair"
+						height={256}
+						width={200}
 						className="w-full h-full object-cover object-top"
 					/>
 					<div className="absolute top-0 left-0 bg-green-500 text-white px-4 py-1 font-medium">

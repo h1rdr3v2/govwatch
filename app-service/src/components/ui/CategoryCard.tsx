@@ -1,5 +1,6 @@
 import React from 'react';
 import { Category } from '../../types';
+import Image from "next/image";
 
 interface CategoryCardProps {
 	category: Category;
@@ -10,9 +11,11 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, index }) => {
 	return (
 		<div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
 			<div className="h-40 overflow-hidden">
-				<img
-					src={`https://readdy.ai/api/search-image?query=A%20professional%2C%20clean%20illustration%20representing%20${category.name}%20issues%20in%20urban%20settings%2C%20with%20a%20minimalist%20design%20and%20blue%20color%20scheme%20on%20white%20background%2C%20suitable%20for%20government%20reporting%20platform&width=300&height=200&seq=cat${index}&orientation=landscape`}
+				<Image
+					src='/work.jpg'
 					alt={category.name}
+					width={200}
+					height={200}
 					className="w-full h-full object-cover object-top"
 				/>
 			</div>
