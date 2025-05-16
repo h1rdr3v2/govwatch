@@ -1,6 +1,8 @@
 services:
     app_service:
       build: app-service
+      environment:
+          - NODE_ENV=production
     ussd_callback:
         build: ./ussd_callback
         volumes:

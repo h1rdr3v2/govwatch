@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 	images: {
 		domains: ['readdy.ai'],
 	},
+	output: 'standalone',
 };
 
 export default nextConfig;
