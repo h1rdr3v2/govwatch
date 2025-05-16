@@ -60,7 +60,7 @@ const ReportingMethods: React.FC = () => {
 						
 						<div className="bg-white rounded-lg shadow-md p-6 mb-6">
 							<div className="text-center mb-6">
-								<span className="text-4xl font-bold text-yellow-600">*311#</span>
+								<span className="text-4xl font-bold text-yellow-600">*384*19803#</span>
 								<p className="text-gray-600 mt-2">Dial this code from any phone</p>
 							</div>
 							

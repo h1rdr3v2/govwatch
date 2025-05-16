@@ -17,7 +17,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ testimonial }) => {
 					<p className="text-gray-600 text-sm">{testimonial.role}</p>
 				</div>
 			</div>
-			<p className="text-gray-700 mb-4">"{testimonial.text}"</p>
+			<p className="text-gray-700 mb-4">&quot;{testimonial.text}&quot;</p>
 			<div className="text-yellow-400">
 				{[...Array(5)].map((_, i) => (
 					<i key={i} className="fas fa-star"></i>
